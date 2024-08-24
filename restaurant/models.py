@@ -50,7 +50,7 @@ class Booking(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Владелец', **NULLABLE)
 
     def __str__(self):
-        return f'{self.client} - {self.visit_date} {self.visit_time}'
+        return f'{self.first_name} {self.last_name} - {self.booking_status}'
 
     class Meta:
         verbose_name = 'Бронирование'
