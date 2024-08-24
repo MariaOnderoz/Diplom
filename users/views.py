@@ -33,6 +33,7 @@ class UserCreateView(CreateView):
         )
         return super().form_valid(form)
 
+
 def email_verification(request, token):
     """Функция для подтверждения почты"""
 

@@ -9,15 +9,15 @@ class UserRegisterForm(StyleFormMixin, UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['email', 'password1', 'password2']
+        fields = ('email', 'password1', 'password2')
 
 
-class UserProfileForm(UserChangeForm):
+class UserProfileForm(StyleFormMixin, UserChangeForm):
     """Форма редактирования профиля пользователя"""
 
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name']
+        exclude = ('token', )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -30,4 +30,4 @@ class UserModeratorForm(StyleFormMixin, UserChangeForm):
 
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', ]
+        fields = ('email', 'first_name', 'last_name', )

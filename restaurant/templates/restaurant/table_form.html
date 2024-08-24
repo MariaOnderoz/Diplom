@@ -7,9 +7,9 @@
         <div class="col-6">
             <div class="card">
                 {% if object %}
-                 <h4 class="card-text text-center">Редактировать клиента</h4>
+                 <h4 class="card-text text-center">Редактировать</h4>
                  {% else %}
-                 <h4 class="card-text text-center">Добавить клиента</h4>
+                 <h4 class="card-text text-center">Добавить стол</h4>
                  {% endif %}
 
                 <div class="card-body">
@@ -23,7 +23,7 @@
                      Создать
                      {% endif %}
                  </button>
-                 <a class="btn btn-primary mb-2" href="{% url 'restaurant:client_list' %}" role="button">Назад</a>
+                 <a class="btn btn-primary mb-2" href="{% url 'restaurant:table_list' %}" role="button">Назад</a>
             </div>
         </div>
     </form>

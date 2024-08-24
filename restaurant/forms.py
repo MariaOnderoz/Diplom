@@ -1,6 +1,6 @@
 from django.forms import ModelForm, BooleanField
 
-from restaurant.models import Client, Booking
+from restaurant.models import Booking, Table
 
 
 class StyleFormMixin:
@@ -15,11 +15,11 @@ class StyleFormMixin:
                 field.widget.attrs['class'] = 'form-control'
 
 
-class ClientForm(StyleFormMixin, ModelForm):
-    """Форма редактирования клиента"""
+class TableForm(StyleFormMixin, ModelForm):
+    """Форма редактирования столика"""
 
     class Meta:
-        model = Client
+        model = Table
         fields = '__all__'
 
 
@@ -29,4 +29,4 @@ class BookingForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Booking
         fields = '__all__'
-        exclude = ('owner',)
+        exclude = ('owner', 'booking_status', )

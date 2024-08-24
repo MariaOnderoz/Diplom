@@ -8,21 +8,13 @@ from users.models import User
 NULLABLE = {"blank": True, "null": True}
 
 
-class Client(models.Model):
-    """Модель клиента"""
+class Table(models.Model):
+    """Модель стола"""
 
-    first_name = models.CharField(max_length=50, verbose_name='Имя')
-    last_name = models.CharField(max_length=50, verbose_name='Фамилия', **NULLABLE)
-    email = models.EmailField(unique=True, verbose_name='Электронная почта')
-    phone_number = models.CharField(max_length=20, verbose_name='Номер телефона')
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Владелец', **NULLABLE)
-
-    def __str__(self):
-        return f'{self.first_name} {self.last_name}'
-
-    class Meta:
-        verbose_name = 'Клиент'
-        verbose_name_plural = 'Клиенты'
+    table_number = models.PositiveIntegerField(primary_key=True, verbose_name='Номер стола')
+    seats_count = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(6)], verbose_name='Количество мест')
+    is_available = models.BooleanField(default=True, verbose_name='Свободен')
+    image = models.ImageField(upload_to='media/images/', verbose_name='Схема столов', **NULLABLE)
 
 
 class Booking(models.Model):
@@ -44,7 +36,10 @@ class Booking(models.Model):
         (6, '22:00'),
     ]
 
-    client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='Клиент')
+    first_name = models.CharField(max_length=50, verbose_name='Имя')
+    last_name = models.CharField(max_length=50, verbose_name='Фамилия', **NULLABLE)
+    email = models.EmailField(verbose_name='Электронная почта', **NULLABLE)
+    table = models.ForeignKey(Table, on_delete=models.CASCADE, verbose_name='Номер стола', **NULLABLE)
     visit_date = models.DateField(default=date.today, verbose_name='Дата бронирования')
     visit_time = models.TimeField(choices=timing, verbose_name='Время бронирования')
     number_of_guests = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(10)], verbose_name='Количество гостей')

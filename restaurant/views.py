@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
-from restaurant.forms import ClientForm, BookingForm
-from restaurant.models import Client, Booking
+from restaurant.forms import TableForm, BookingForm
+from restaurant.models import Table, Booking
 
 
 class HomePage(TemplateView):
@@ -23,56 +23,53 @@ class ContactsView(TemplateView):
 # Классы для клиентов
 
 
-class ClientCreateView(CreateView):
-    """Контроллер создания нового клиента"""
+class TableCreateView(CreateView):
+    """Контроллер создания нового стола"""
 
-    model = Client
-    form_class = ClientForm
-    success_url = reverse_lazy('restaurant:home')
+    model = Table
+    form_class = TableForm
+    success_url = reverse_lazy('restaurant:table_list')
 
     def form_valid(self, form):
-        client = form.save()
+        table = form.save()
         user = self.request.user
-        client.owner = user
-        client.save()
+        table.owner = user
+        table.save()
         return super().form_valid(form)
 
 
-class ClientListView(ListView):
-    """Контроллер списка всех клиентов"""
+class TableListView(ListView):
+    """Контроллер списка всех столов"""
 
-    model = Client
+    model = Table
 
-    def get_queryset(self):
-        user = self.request.user
-        return super().get_queryset().filter(owner=user)
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     return super().get_queryset().filter(owner=user)
 
 
-class ClientDetailView(DetailView):
-    """Контроллер детального просмотра клиента"""
+class TableDetailView(DetailView):
+    """Контроллер детального просмотра стола"""
 
-    model = Client
+    model = Table
 
     def get_context_data(self, *args, **kwargs):
-        context_data = super().get_context_data(*args, **kwargs)
-        return context_data
+        context = super().get_context_data(*args, **kwargs)
+        return context
 
 
-class ClientUpdateView(UpdateView):
-    """Контроллер редактирования клиента"""
-
-    model = Client
-    form_class = ClientForm
-
-    def get_success_url(self):
-        return reverse_lazy('restaurant:client_detail', args=[self.kwargs.get('pk')])
+class TableUpdateView(UpdateView):
+    """Контроллер редактирования стола"""
+    model = Table
+    form_class = TableForm
+    success_url = reverse_lazy('restaurant:table_list')
 
 
-class ClientDeleteView(DeleteView):
-    """Контроллер удаления клиента"""
+class TableDeleteView(DeleteView):
+    """Контроллер удаления стола"""
 
-    model = Client
-    success_url = reverse_lazy('restaurant:client_list')
+    model = Table
+    success_url = reverse_lazy('restaurant:table_list')
 
 
 # Классы для бронирования
