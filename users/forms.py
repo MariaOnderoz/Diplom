@@ -17,7 +17,7 @@ class UserProfileForm(StyleFormMixin, UserChangeForm):
 
     class Meta:
         model = User
-        exclude = ('token', )
+        fields = ('email', 'first_name', 'last_name', 'avatar', 'phone_number', )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -25,9 +25,9 @@ class UserProfileForm(StyleFormMixin, UserChangeForm):
         self.fields['password'].widget = forms.HiddenInput()
 
 
-class UserModeratorForm(StyleFormMixin, UserChangeForm):
-    """Форма модератора для редактирования профиля пользователя"""
-
-    class Meta:
-        model = User
-        fields = ('email', 'first_name', 'last_name', )
+# class UserModeratorForm(StyleFormMixin, UserChangeForm):
+#     """Форма модератора для редактирования профиля пользователя"""
+#
+#     class Meta:
+#         model = User
+#         fields = ('email', 'first_name', 'last_name', )

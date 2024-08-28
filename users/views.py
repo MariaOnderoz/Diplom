@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView
 from config import settings
-from users.forms import UserRegisterForm, UserProfileForm, UserModeratorForm
+from users.forms import UserRegisterForm, UserProfileForm
 from config.settings import EMAIL_HOST_USER
 from users.models import User
 
@@ -22,7 +22,7 @@ class UserCreateView(CreateView):
         user.is_active = False
         token = secrets.token_hex(16)
         user.token = token
-        user.save()
+        user.save(update_fields=['is_active', 'token'])
         host = self.request.get_host()
         url = f'http://{host}/users/email-confirm/{token}/'
         send_mail(

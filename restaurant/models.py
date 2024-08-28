@@ -41,7 +41,7 @@ class Booking(models.Model):
     email = models.EmailField(verbose_name='Электронная почта', **NULLABLE)
     table = models.ForeignKey(Table, on_delete=models.CASCADE, verbose_name='Номер стола', **NULLABLE)
     visit_date = models.DateField(default=date.today, verbose_name='Дата бронирования')
-    visit_time = models.TimeField(choices=timing, verbose_name='Время бронирования')
+    visit_time = models.TimeField(choices=timing, verbose_name='Время бронирования', **NULLABLE)
     number_of_guests = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(10)], verbose_name='Количество гостей')
     special_request = models.TextField(verbose_name='Особые пожелания', **NULLABLE)
     booking_status = models.CharField(max_length=50, choices=statuses, verbose_name='Статус бронирования')
@@ -55,3 +55,8 @@ class Booking(models.Model):
     class Meta:
         verbose_name = 'Бронирование'
         verbose_name_plural = 'Бронирования'
+
+        constraints = [
+            models.UniqueConstraint(fields=['visit_time', 'visit_date', 'table'], name='name of constraint')
+        ]
+
