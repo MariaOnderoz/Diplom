@@ -63,6 +63,7 @@
 # Использование
 
 1. Локально:
+
     python3 manage.py runserver (для MasOs и Linux)
     python manage.py runserver (для windows)
 
