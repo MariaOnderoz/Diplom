@@ -3,7 +3,7 @@ import secrets
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, TemplateView
 from config import settings
 from users.forms import UserRegisterForm, UserProfileForm
 from config.settings import EMAIL_HOST_USER
@@ -43,7 +43,13 @@ def email_verification(request, token):
     return redirect(reverse('users:login'))
 
 
-class ProfileView(UpdateView):
+class ProfileView(TemplateView):
+    """Контроллер просмотра профиля пользователя"""
+
+    template_name = 'users/profile.html'
+
+
+class ProfileUpdateView(UpdateView):
     """Контроллер редактирования профиля пользователя"""
 
     model = User

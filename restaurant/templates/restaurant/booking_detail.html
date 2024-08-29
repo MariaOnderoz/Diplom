@@ -16,7 +16,9 @@
                 <p class="card-text">Статус бронирования: {{ object.booking_status }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a class="btn btn-primary" href="{% url 'restaurant:booking_list' %}" role="button">Назад</a>
+                    <a class="btn btn-primary mr-2 btn-sm" href="{% url 'restaurant:booking_list' %}" role="button">Назад</a>
+                    <a class="btn btn-success mr-2 btn-sm" href="{% url 'restaurant:booking_update' object.pk %}" role="button">Изменить</a>
+                    <a class="btn btn-danger mr-2 btn-sm" href="{% url 'restaurant:booking_delete' object.pk %}" role="button">Удалить</a>
                   </div>
                 </div>
               </div>

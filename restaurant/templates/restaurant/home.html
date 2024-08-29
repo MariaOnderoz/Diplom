@@ -3,34 +3,6 @@
 {% block content %}
 
 <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <div class="col-12-md-3 mb-2 mb-md-0">
-        <a href="{% url 'restaurant:home' %}" class="navbar-brand d-flex align-items-center">
-          <strong>Черная жемчужина</strong>
-        </a>
-      </div>
-
-      <ul class="nav col-6 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#1" class="nav-link px-2">О нас</a></li>
-        <li><a href="#2" class="nav-link px-2">Меню</a></li>
-        <li><a href="{% url 'restaurant:booking_create' %}" class="nav-link px-2">Забронировать</a></li>
-        <li><a href="#3" class="nav-link px-2">Контакты</a></li>
-      </ul>
-
-      <div class="col-6-md-3 text-end">
-        {% if user.is_authenticated %}
-        <a class="btn btn-outline-primary me-2" href="{% url 'users:profile' %}" role="button">Профиль</a>
-        <a class="btn btn-primary me-2" href="{% url 'restaurant:booking_list' %}" role="button">Мои бронирования</a>
-        <a class="btn btn-danger" href="{% url 'users:logout' %}" role="button">Выйти</a>
-        {% else %}
-        <a class="btn btn-outline-primary me-2" href="{% url 'users:login' %}" role="button">Войти</a>
-        <a class="btn btn-primary" href="{% url 'users:register' %}" role="button">Зарегистрироваться</a>
-        {% endif %}
-      </div>
-    </header>
-</div>
-
-<div class="container">
     <h1 class="fw-light mb-4 text-center">Черная жемчужина</h1>
     <div class="card shadow-sm">
         <img src="/media/images/заставка.jpg">
@@ -45,8 +17,35 @@
                     Кроме гастрономических достоинств, нужно отметить великолепную обстановку, приветливый персонал
                     и качественное обслуживание. Милые белые столики, застеленные синей скатертью, расположены
                     на песчаном берегу у самой кромки воды. Заведение утопает в зелени и ярких цветах бугенвиллиях.
-                    Словно маленькие разноцветные огоньки, ресторан украшают традиционные бодрумские лампы из тыквы.
-                    В услуги нашего ресторана входит: организация частных мероприятий, свадебных торжеств, кейтеринг.</p>
+                    Словно маленькие разноцветные огоньки, ресторан украшают традиционные бодрумские лампы из тыквы.</p>
+                <h4 class="card-text text-center">В услуги нашего ресторана входит:</h4>
+                <p class="card-text text-center">1. Бронирование столов</p>
+                <p class="card-text text-center">2. Организация частных мероприятий и свадебных торжеств.:</p>
+                <p class="card-text text-center">3. Kейтеринг.</p>
+                <p class="card-text text-center">4. Доставка на дом</p>
+                <p class="card-text text-center">5. Бесплатный WiFi</p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Наша команда</h2>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card mb-4 box-shadow">
+                        <img src="/media/images/сотрудник5.jpeg">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card mb-4 box-shadow">
+                        <img src="/media/images/сотрудник2.jpeg">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card mb-4 box-shadow">
+                        <img src="/media/images/сотрудник3.jpeg">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,7 +1,11 @@
+from django.core.mail import send_mail
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
+from config import settings
 from restaurant.forms import TableForm, BookingForm
 from restaurant.models import Table, Booking
+from users.models import User
 
 
 class HomePage(TemplateView):
