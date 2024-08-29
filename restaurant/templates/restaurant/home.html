@@ -19,8 +19,9 @@
 
       <div class="col-6-md-3 text-end">
         {% if user.is_authenticated %}
-        <a class="btn btn-outline-primary me-2" href="{% url 'users:profile' %}" role="button">Личный кабинет</a>
-        <a class="btn btn-primary" href="{% url 'users:logout' %}" role="button">Выйти</a>
+        <a class="btn btn-outline-primary me-2" href="{% url 'users:profile' %}" role="button">Профиль</a>
+        <a class="btn btn-primary me-2" href="{% url 'restaurant:booking_list' %}" role="button">Мои бронирования</a>
+        <a class="btn btn-danger" href="{% url 'users:logout' %}" role="button">Выйти</a>
         {% else %}
         <a class="btn btn-outline-primary me-2" href="{% url 'users:login' %}" role="button">Войти</a>
         <a class="btn btn-primary" href="{% url 'users:register' %}" role="button">Зарегистрироваться</a>
