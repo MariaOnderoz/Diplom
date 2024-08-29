@@ -2,12 +2,14 @@
 
 # **Cайт для бронирования столиков в ресторане**
 
+
 ### Описание задачи:
 
 Необходимо создать сайт для бронирования столиков в ресторане. 
 Сайт должен быть сверстан и подключен к админке. 
 Для выполнения задачи необходимо использовать Django и Bootstrap. 
 Сайт должен содержать основные разделы, необходимые для бронирования столиков и управления бронированиями.
+
 
 ### Функционал сайта:
 
@@ -29,6 +31,7 @@
     - Управление бронированиями.
     - Управление контентом сайта (тексты, изображения и т.д.).
 
+
 ### Технические требования:
 
 * Django
@@ -46,11 +49,13 @@
 
 2. Установите и активируйте виртуальное окружение:
    
-    python3 -m venv env (для MacOS и Linux)
-    python -m venv env (для windows)
+    - python3 -m venv env (для MacOS и Linux)
 
-    source venv/bin/activate (для MasOs и Linux)
-    venv\Scripts\activate.bat (для windows)
+      python -m venv env (для windows)
+
+    -  source venv/bin/activate (для MasOs и Linux)
+
+      venv\Scripts\activate.bat (для windows)
 
 3. Установите файл с зависимостями
 
@@ -60,11 +65,13 @@
 
 5. Создайте базу данных в pgAdmin
 
+
 # Использование
 
 1. Локально:
 
     python3 manage.py runserver (для MasOs и Linux)
+
     python manage.py runserver (для windows)
 
 2. Через Docker:
