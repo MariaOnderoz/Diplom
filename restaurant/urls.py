@@ -10,11 +10,11 @@ urlpatterns = [
     path('', HomePage.as_view(), name='home'),
     path('contacts/', ContactsView.as_view(), name='contacts'),
 
-    path('table/', TableListView.as_view(), name='table_list'),
-    path('table/create/', TableCreateView.as_view(), name='table_create'),
-    path('table/<int:pk>/', TableDetailView.as_view(), name='table_detail'),
-    path('table/<int:pk>/update/', TableUpdateView.as_view(), name='table_update'),
-    path('table/<int:pk>/delete/', TableDeleteView.as_view(), name='table_delete'),
+    # path('table/', TableListView.as_view(), name='table_list'),
+    # path('table/create/', TableCreateView.as_view(), name='table_create'),
+    # path('table/<int:pk>/', TableDetailView.as_view(), name='table_detail'),
+    # path('table/<int:pk>/update/', TableUpdateView.as_view(), name='table_update'),
+    # path('table/<int:pk>/delete/', TableDeleteView.as_view(), name='table_delete'),
 
     path('booking/', BookingListView.as_view(), name='booking_list'),
     path('booking/create/', BookingCreateView.as_view(), name='booking_create'),

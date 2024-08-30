@@ -59,12 +59,6 @@ class ProfileUpdateView(UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
 
-    # def get_form_class(self):
-    #     user = self.request.user
-    #     if user.has_perm("users.can_view_user") and user.has_perm("users.can_block_user"):
-    #         return UserModeratorForm
-    #     return UserProfileForm
-
 
 def generate_new_password(request):
     """Функция для смены пароля"""

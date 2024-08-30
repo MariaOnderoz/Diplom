@@ -23,11 +23,3 @@ class UserProfileForm(StyleFormMixin, UserChangeForm):
         super().__init__(*args, **kwargs)
 
         self.fields['password'].widget = forms.HiddenInput()
-
-
-# class UserModeratorForm(StyleFormMixin, UserChangeForm):
-#     """Форма модератора для редактирования профиля пользователя"""
-#
-#     class Meta:
-#         model = User
-#         fields = ('email', 'first_name', 'last_name', )

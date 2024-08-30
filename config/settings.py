@@ -23,6 +23,7 @@ INSTALLED_APPS = [
 
     'restaurant',
     'users',
+    'blog',
 ]
 
 MIDDLEWARE = [
