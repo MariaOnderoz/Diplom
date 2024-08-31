@@ -14,7 +14,7 @@ class Table(models.Model):
     table_number = models.PositiveIntegerField(primary_key=True, verbose_name='Номер стола')
     seats_count = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(6)], verbose_name='Количество мест')
     is_available = models.BooleanField(default=True, verbose_name='Свободен')
-    image = models.ImageField(upload_to='media/images/', verbose_name='Схема столов', **NULLABLE)
+    image = models.ImageField(upload_to='images/', verbose_name='Схема столов', **NULLABLE)
 
 
 class Booking(models.Model):
